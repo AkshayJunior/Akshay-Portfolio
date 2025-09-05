@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Mail, Phone, Linkedin, Github, MapPin, Calendar, Briefcase, GraduationCap, Code, Star, ExternalLink, ChevronRight, Database, Brain, BarChart3, TrendingUp } from 'lucide-react';
+import resume from "../assets/Akshay Resume.pdf.pdf";
+
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -7,11 +9,11 @@ function App() {
 
   useEffect(() => {
     setIsLoaded(true);
-    
+
     const handleScroll = () => {
       const sections = ['hero', 'experience', 'education', 'skills', 'projects'];
       const scrollPosition = window.scrollY + 100;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -26,7 +28,7 @@ function App() {
 
 
 
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -56,9 +58,8 @@ function App() {
                 <button
                   key={id}
                   onClick={() => scrollToSection(id)}
-                  className={`transition-all duration-300 hover:text-blue-600 ${
-                    activeSection === id ? 'text-blue-600 font-semibold' : 'text-slate-600'
-                  }`}
+                  className={`transition-all duration-300 hover:text-blue-600 ${activeSection === id ? 'text-blue-600 font-semibold' : 'text-slate-600'
+                    }`}
                 >
                   {label}
                 </button>
@@ -96,19 +97,24 @@ function App() {
                 </div>
               </div>
               <div className="flex gap-4">
-                <a 
-                  href="https://www.linkedin.com/in/akshaysuresh11" 
-                  target="_blank" 
+                <a
+                  href="https://www.linkedin.com/in/akshaysuresh11"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all duration-300 hover:transform hover:scale-105"
                 >
                   <Linkedin className="w-4 h-4" />
                   LinkedIn Profile
                 </a>
-                <button className="flex items-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-700 px-6 py-3 rounded-lg transition-all duration-300 hover:bg-slate-50">
+
+                <a
+                  href={resume}
+                  download="Akshay_JR_Resume.pdf"
+                  className="flex items-center gap-2 border border-slate-300 hover:border-slate-400 text-slate-700 px-6 py-3 rounded-lg transition-all duration-300 hover:bg-slate-50"
+                >
                   <ExternalLink className="w-4 h-4" />
                   Download Resume
-                </button>
+                </a>
               </div>
             </div>
             <div className="lg:col-span-1">
@@ -165,7 +171,7 @@ function App() {
                       <span>Sept 2024 - Present</span>
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="bg-white p-6 rounded-xl border border-slate-200">
@@ -174,23 +180,23 @@ function App() {
                           <h4 className="font-semibold text-slate-900">Data Processing</h4>
                         </div>
                         <p className="text-slate-600 text-sm leading-relaxed">
-                          Specialized in data cleaning, fixing spelling errors, formatting inconsistencies, 
+                          Specialized in data cleaning, fixing spelling errors, formatting inconsistencies,
                           and missing values in address fields for enhanced data quality.
                         </p>
                       </div>
-                      
+
                       <div className="bg-white p-6 rounded-xl border border-slate-200">
                         <div className="flex items-center gap-3 mb-3">
                           <TrendingUp className="w-5 h-5 text-green-600" />
                           <h4 className="font-semibold text-slate-900">Standardization</h4>
                         </div>
                         <p className="text-slate-600 text-sm leading-relaxed">
-                          Implementing formats like USPS, India Post, and ISO address standards 
+                          Implementing formats like USPS, India Post, and ISO address standards
                           to ensure data uniformity across systems.
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="bg-white p-6 rounded-xl border border-slate-200">
                       <h4 className="font-semibold text-slate-900 mb-3">Key Responsibilities</h4>
                       <ul className="space-y-3">
@@ -247,7 +253,7 @@ function App() {
                       <span>Sep 2021 - May 2024</span>
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-slate-50 p-4 rounded-lg">
                       <h4 className="font-semibold text-slate-900 mb-2">Relevant Coursework</h4>
@@ -351,7 +357,7 @@ function App() {
               <div className="space-y-4">
                 {[
                   'Data Analysis',
-                  'ML Model Building', 
+                  'ML Model Building',
                   'Data Pre-processing'
                 ].map((skill) => (
                   <div key={skill} className="flex items-center gap-3">
@@ -398,7 +404,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
                     <h4 className="text-xl font-semibold text-slate-900 mb-4">Cardiovascular Health Prediction Project</h4>
                     <div className="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-xl border border-red-200 mb-4">
@@ -417,7 +423,7 @@ function App() {
                     <ul className="space-y-3">
                       {[
                         'Led cardiovascular health prediction using patient demographics, medical histories, and lifestyle data',
-                        'Pre-processed and engineered features from diverse healthcare dataset to improve model performance', 
+                        'Pre-processed and engineered features from diverse healthcare dataset to improve model performance',
                         'Identified key risk factors (age, cholesterol, lifestyle) to support personalized preventive healthcare',
                         'Delivered actionable insights and recommendations for healthcare professionals'
                       ].map((achievement, index) => (
@@ -429,7 +435,7 @@ function App() {
                     </ul>
                   </div>
                 </div>
-                
+
                 <div className="lg:w-80">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h5 className="font-semibold text-slate-900 mb-4">Technologies Used</h5>
@@ -462,7 +468,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
                     <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200 mb-4">
                       <div className="flex items-center gap-3 mb-3">
@@ -492,7 +498,7 @@ function App() {
                     </ul>
                   </div>
                 </div>
-                
+
                 <div className="lg:w-80">
                   <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
                     <h5 className="font-semibold text-slate-900 mb-4">Technologies Used</h5>
@@ -516,18 +522,18 @@ function App() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">Let's Connect</h2>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Ready to contribute to innovative projects in AI/ML and data analytics. 
+            Ready to contribute to innovative projects in AI/ML and data analytics.
             Open to opportunities in big tech companies and data-driven organizations.
           </p>
           <div className="flex justify-center gap-6">
-            <a 
+            <a
               href="mailto:akshaysureshajr@gmail.com"
               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-all duration-300 hover:transform hover:scale-105"
             >
               <Mail className="w-4 h-4" />
               Email Me
             </a>
-            <a 
+            <a
               href="https://www.linkedin.com/in/akshaysuresh11"
               target="_blank"
               rel="noopener noreferrer"
